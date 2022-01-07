@@ -1,22 +1,24 @@
 package entities;
 
+import java.util.List;
+
 public class Employee {
 
-	private int id;
+	private Integer id;
 	private String name;
-	private double salary;
+	private Double salary;
 	
-	public Employee(int id, String name, double salary) {
+	public Employee(Integer id, String name, Double salary) {
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -28,19 +30,18 @@ public class Employee {
 		this.name = name;
 	}
 
-	public double getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
 
-	public void increaseSalary(double percentage) {
+	public void increaseSalary(Double percentage) {
 		
 		double increase = salary * (percentage / 100);
-		salary += increase;
+		salary += increase; 
 	}
 	
 	public String toString() {
 		
-		return id + ", " + name + ", " + String.format("%.2f%n", salary);
+		return id + ", " + name + ", " + String.format("%.2f", salary);
 	}
-	
 }

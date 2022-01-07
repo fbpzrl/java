@@ -27,6 +27,4 @@ public class Student {
 		return "PASS";
 		
 	}
-	
-	
 }
