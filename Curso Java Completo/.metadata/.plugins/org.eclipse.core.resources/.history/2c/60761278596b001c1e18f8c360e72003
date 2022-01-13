@@ -1,0 +1,16 @@
+package entities;
+
+public class Employee {
+
+	private String name;
+	private Double grossSalary;
+	private Double tax;
+	
+	public Employee(String name, Double grossSalary, Double tax) {
+		this.name = name;
+		this.grossSalary = grossSalary;
+		this.tax = tax;
+	}
+	
+	
+}

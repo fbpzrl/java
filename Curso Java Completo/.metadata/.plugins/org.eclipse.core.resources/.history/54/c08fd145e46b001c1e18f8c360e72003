@@ -1,0 +1,13 @@
+package application;
+
+import java.util.Locale;
+
+import entities.Student;
+
+public class Exercicio3 {
+
+	public Exercicio3() {
+		
+		Locale.setDefault(Locale.US);
+	}
+}

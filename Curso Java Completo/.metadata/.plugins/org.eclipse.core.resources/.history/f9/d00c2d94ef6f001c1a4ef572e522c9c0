@@ -1,0 +1,59 @@
+package application;
+
+import java.util.Scanner;
+
+public class ExercicioFixacao3 {
+
+	public ExercicioFixacao3() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter two numbers: ");
+		String[] input = sc.nextLine().split(" ");
+		int m = Integer.parseInt(input[0]);
+		int n = Integer.parseInt(input[1]);
+		
+		int[][] mat = new int[m][n];
+		
+		System.out.println();
+		
+		System.out.println("Enter the matrix numbers:");
+		for (int i = 0; i < m; i++) { //rows
+			for (int j = 0; j < n; j++) { //columns
+				
+				mat[i][j] = sc.nextInt();
+			}
+		}
+		
+		System.out.println();
+		
+		System.out.print("Enter a matrix number: ");
+		int number = sc.nextInt();
+		
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				
+				if (mat[o][p] == number) {
+					
+					System.out.println("Position " + o + ", " + p + ":");
+					
+					if (p - 1 >= 0)
+						System.out.println("Left: " + mat[o][p - 1]);
+					
+					if (o - 1 >= 0)
+						System.out.println("Up: " + mat[o][o - 1]);
+					
+					
+					
+						System.out.println("Right: " + mat[o][p + 1]);
+					
+					
+					System.out.println("Down: " + mat[o + 1][p]);
+					System.out.println("Left: " + mat[o][p - 1]);
+				}
+			}
+		}
+		
+		sc.close();
+	}
+}
