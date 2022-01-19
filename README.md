@@ -1,2 +1,2 @@
 # java
-Java studies
+Java studies and portfolio.
