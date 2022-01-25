@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devsuperior.dscatalog.entities.Category;
 
 @RestController
-@RequestMapping(value = "/categories")
+@RequestMapping(value = "/categories") //RequestMapping defines the Rest route's name
 public class CategoryResource {
 
-	@GetMapping //@GetMapping defines a endpoint
-	public ResponseEntity<List<Category>> findAll() {
+	@GetMapping //@GetMapping defines a endpoint.
+	//Endpoint is the URL where a resource can be accessed by an application.
+	public ResponseEntity<List<Category>> findAll() { //ResponseEntity is a Spring object that encapsulates an http response
 		
 		List<Category> list = new ArrayList<>();
 		list.add(new Category(1L, "Books"));
