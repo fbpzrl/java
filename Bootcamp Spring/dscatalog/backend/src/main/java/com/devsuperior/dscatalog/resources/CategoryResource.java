@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devsuperior.dscatalog.dto.CategoryDTO;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.services.CategoryService;
 
@@ -29,9 +30,8 @@ public class CategoryResource { //Resource implements the Rest Controller
 	 */
 	
 	@GetMapping //Defines that the method is a EndPoint
-	public ResponseEntity<List<Category>> findAll() { //ResponseEntity is a Spring object that will encapsulate an Http response
-		List<Category> list = service.findAll();
-		
+	public ResponseEntity<List<CategoryDTO>> findAll() { //ResponseEntity is a Spring object that will encapsulate an Http response
+		List<CategoryDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }
