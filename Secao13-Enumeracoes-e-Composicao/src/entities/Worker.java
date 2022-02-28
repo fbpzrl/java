@@ -8,18 +8,15 @@ import entities.enums.WorkerLevel;
 
 public class Worker {
 
-	// Atributes
 	private String name;
 	private WorkerLevel level;
 	private Double baseSalary;
-
-	// Associations
+	
 	private Department department;
-	private List<Contract> contracts = new ArrayList<>();
-
-	public Worker() {
-
-	}
+	
+	List<HourContract> contracts = new ArrayList<HourContract>();
+	
+	public Worker() {}
 
 	public Worker(String name, WorkerLevel level, Double baseSalary, Department department) {
 		this.name = name;
@@ -60,37 +57,44 @@ public class Worker {
 		this.department = department;
 	}
 
-	public List<Contract> getContracts() {
+	public List<HourContract> getContracts() {
 		return contracts;
 	}
 
-	public void addContract(Contract contract) {
-
+	public void addContract(HourContract contract) {
 		contracts.add(contract);
 	}
-
-	public void removeContract(Contract contract) {
-
+	
+	public void removeContract(HourContract contract) {
 		contracts.remove(contract);
 	}
-
-	public Double income(int year, int month) {
+	
+	public Double income(int month, int year) {
+		double total = baseSalary;
 		
-		double sum = baseSalary;
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance(); // Instantiating a calendar
 		
-		for(Contract c : contracts) {
+		for(HourContract obj : contracts) {
+			cal.setTime(obj.getDate()); // Informing the date to be worked
 			
-			cal.setTime(c.getDate());
-			int c_year = cal.get(Calendar.YEAR);
-			int c_month = 1 + cal.get(Calendar.MONTH); //the month begins in 0
-			
-			if (year == c_year && month == c_month) {
-				
-				sum += c.totalValue();
+			if (month == (1 + cal.get(Calendar.MONTH)) && year == cal.get(Calendar.YEAR)) { // Month is between 0 and 11
+				total += obj.totalValue();
 			}
 		}
 		
-		return sum;
+		return total;
+	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Name: ");
+		sb.append(getName() + "\n");
+		sb.append("Department: ");
+		sb.append(getDepartment().getName());
+		
+		return sb.toString();
 	}
 }
