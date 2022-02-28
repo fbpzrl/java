@@ -10,16 +10,15 @@ public class Worker {
 
 	private String name;
 	private WorkerLevel level;
-	private double baseSalary;
+	private Double baseSalary;
 	
 	private Department department;
-	private List<HourContract> contracts = new ArrayList<>(); //Lista de contratos instanciada vazia
 	
-	public Worker() {
-		
-	}
+	List<HourContract> contracts = new ArrayList<HourContract>();
 	
-	public Worker(String name, WorkerLevel level, double baseSalary, Department department) {
+	public Worker() {}
+
+	public Worker(String name, WorkerLevel level, Double baseSalary, Department department) {
 		this.name = name;
 		this.level = level;
 		this.baseSalary = baseSalary;
@@ -42,11 +41,11 @@ public class Worker {
 		this.level = level;
 	}
 
-	public double getBaseSalary() {
+	public Double getBaseSalary() {
 		return baseSalary;
 	}
 
-	public void setBaseSalary(double baseSalary) {
+	public void setBaseSalary(Double baseSalary) {
 		this.baseSalary = baseSalary;
 	}
 
@@ -61,34 +60,41 @@ public class Worker {
 	public List<HourContract> getContracts() {
 		return contracts;
 	}
-	
+
 	public void addContract(HourContract contract) {
-		
-		contracts.add(contract); //Adiciona um contrato à lista de contratos
+		contracts.add(contract);
 	}
 	
 	public void removeContract(HourContract contract) {
-		
 		contracts.remove(contract);
 	}
 	
-	public double income(int year, int month) {
+	public Double income(int month, int year) {
+		double total = baseSalary;
 		
-		double sum = baseSalary;
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = Calendar.getInstance(); // Instantiating a calendar
 		
-		for (HourContract c : contracts) {
+		for(HourContract obj : contracts) {
+			cal.setTime(obj.getDate()); // Informing the date to be worked
 			
-			cal.setTime(c.getDate()); //Atribuiu a data do contrato à data do Calendar
-			int c_year = cal.get(Calendar.YEAR);
-			int c_month = 1 + cal.get(Calendar.MONTH); //O mês do Calendar começa com 0, por isso tem que somar 1.
-			
-			if (year == c_year && month == c_month) {
-				
-				sum += c.totalValue();
+			if (month == (1 + cal.get(Calendar.MONTH)) && year == cal.get(Calendar.YEAR)) { // Month is between 0 and 11
+				total += obj.totalValue();
 			}
 		}
 		
-		return sum;
-	}	
+		return total;
+	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Name: ");
+		sb.append(getName() + "\n");
+		sb.append("Department: ");
+		sb.append(getDepartment().getName());
+		
+		return sb.toString();
+	}
 }
