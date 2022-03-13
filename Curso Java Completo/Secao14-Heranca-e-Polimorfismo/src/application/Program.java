@@ -10,7 +10,8 @@ public class Program {
 		
 		//new ExercicioResolvido();
 		//new ExercicioFixacao();
-		new ExercicioResolvido2();
+		//new ExercicioResolvido2();
+		new ExercicioFixacao2();
 	}
 
 }
