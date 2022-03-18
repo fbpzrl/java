@@ -1,5 +1,6 @@
 package com.devsuperior.dscatalog.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,7 +23,17 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public List<CategoryDTO> findAll() {
 		List<Category> list = repository.findAll();
-		return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList()); //converting Category to CategoryDTO
+		
+		//converting Category to CategoryDTO
+		List<CategoryDTO> listDto = new ArrayList<>();
+		for (Category cat : list) {
+			listDto.add(new CategoryDTO(cat));
+		}
+		
+		return listDto;
+		
+		//converting Category to CategoryDTO using Lambda expression
+		//return list.stream().map(x -> new CategoryDTO(x)).collect(Collectors.toList());
 	}
 
 	@Transactional(readOnly = true)
