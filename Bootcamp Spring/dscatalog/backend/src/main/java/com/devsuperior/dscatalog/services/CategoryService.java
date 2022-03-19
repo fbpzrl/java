@@ -3,7 +3,8 @@ package com.devsuperior.dscatalog.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dscatalog.dto.CategoryDTO;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.repositories.CategoryRepository;
-import com.devsuperior.dscatalog.services.exceptions.EntityNotFoundException;
+import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CategoryService {
@@ -39,7 +40,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
-		Category category = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
+		Category category = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new CategoryDTO(category);
 	}
 
@@ -49,5 +50,28 @@ public class CategoryService {
 		category.setName(dto.getName());
 		category = repository.save(category);
 		return new CategoryDTO(category);
+	}
+
+	@Transactional
+	public CategoryDTO update(Long id, CategoryDTO dto) {
+		
+		/*
+		 * The getOne() method does not touch the database. 
+		 * It instantiates a temporary object with the Id and the other fields. 
+		 * In this way, it accesses the database only at the time of saving the record.
+		 * So, when you want to update the database, the proper method is getOne() from JPA.
+		 */
+		try {
+			Category category = repository.getOne(id);
+			category.setName(dto.getName());
+			category = repository.save(category);
+			return new CategoryDTO(category);
+		}
+		catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Id " + id + " not found");
+		}
+		
+		
+		
 	}
 }
