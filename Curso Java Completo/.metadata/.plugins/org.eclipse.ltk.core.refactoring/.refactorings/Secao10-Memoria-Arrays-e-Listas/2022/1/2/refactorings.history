@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;application.ExercicioFixacao&apos; to &apos;ExercicioFixacao1&apos;&#x0D;&#x0A;- Original project: &apos;Secao10-Memoria-Arrays-e-Listas&apos;&#x0D;&#x0A;- Original element: &apos;application.ExercicioFixacao&apos;&#x0D;&#x0A;- Renamed element: &apos;application.ExercicioFixacao1&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ExercicioFixacao&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;application{ExercicioFixacao.java[ExercicioFixacao" matchStrategy="1" name="ExercicioFixacao1" qualified="false" references="true" similarDeclarations="false" stamp="1641401662994" textual="false" version="1.0"/>
-</session>
