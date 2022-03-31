@@ -8,7 +8,8 @@ public class Program {
 
 	public static void main(String[] args) throws ParseException {
 		
-		new ExercicioResolvido();
+		//new ExercicioResolvido();
+		new ExercicioFixacao();
 	}
 
 }
