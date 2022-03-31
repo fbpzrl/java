@@ -24,7 +24,7 @@ public class ExercicioResolvido {
 			Date checkOut = sdf.parse(sc.next());
 			
 			Reservation reservation = new Reservation(number, checkIn, checkOut);
-			System.out.println("Reservation: " + reservation);
+			System.out.println(reservation);
 			
 			System.out.println();
 			System.out.println("Enter data to update the reservation:");
@@ -34,7 +34,7 @@ public class ExercicioResolvido {
 			checkOut = sdf.parse(sc.next());
 			
 			reservation.updateDates(checkIn, checkOut);
-			System.out.println("Reservation: " + reservation);
+			System.out.println(reservation);
 		}
 		catch (ParseException e) {
 			System.out.println("Invalid date format");
