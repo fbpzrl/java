@@ -1,2 +1,5 @@
 ### Eclipse ###
 .metadata
+
+### MacOS ###
+*.DS_Store
