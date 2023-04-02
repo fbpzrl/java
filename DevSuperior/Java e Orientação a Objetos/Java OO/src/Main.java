@@ -1,7 +1,8 @@
+import _01_Introducao.OlaMundo;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Olá, mundo!");
+        OlaMundo.dizerOla();
     }
 }
