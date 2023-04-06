@@ -18,7 +18,7 @@ public class Loop {
             numero = sc.nextInt();
 
             if (numero == 0) {
-                System.out.println("Você digitou 0. FIM DO PROGRAMA!");
+                System.out.println("Você digitou 0. FIM DO PROGRAMA !");
             }
         }
     }
