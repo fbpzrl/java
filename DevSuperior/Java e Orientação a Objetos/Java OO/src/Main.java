@@ -10,6 +10,7 @@ public class Main {
         //Loop.whileLoop();
         //Loop.forLoop();
         //Loop.doWhileLoop();
-        new Exercicio01();
+        //new Exercicio01();
+        new Exercicio02();
     }
 }
