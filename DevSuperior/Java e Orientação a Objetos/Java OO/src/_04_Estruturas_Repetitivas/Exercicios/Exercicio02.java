@@ -10,8 +10,8 @@ public class Exercicio02 {
         Locale.setDefault(Locale.US);
 
         Scanner sc = new Scanner(System.in);
-        int idade = 0, quantidade = 0;
-        double soma = 0, media = 0;
+        int idade, quantidade = 1;
+        double soma = 0;
 
         System.out.println("Digite as idades:");
         idade = sc.nextInt();
@@ -24,10 +24,8 @@ public class Exercicio02 {
             idade = sc.nextInt();
         }
 
-        media = soma / quantidade;
-
-        if (media > 0) {
-            System.out.printf("A média das idades é: %.2f", media);
+        if ((soma / quantidade) > 0) {
+            System.out.printf("A média das idades é: %.2f", (soma / quantidade));
         }
         else {
             System.out.println("IMPOSSÍVEL CALCULAR");
