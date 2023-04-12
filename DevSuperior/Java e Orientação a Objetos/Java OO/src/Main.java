@@ -11,6 +11,7 @@ public class Main {
         //Loop.forLoop();
         //Loop.doWhileLoop();
         //new Exercicio01();
-        new Exercicio02();
+        //new Exercicio02();
+        new Exercicio03();
     }
 }
