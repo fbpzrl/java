@@ -1,7 +1,8 @@
 //import _01_Introducao.OlaMundo;
 //import _04_Estruturas_Repetitivas.Loop;
+//import _04_Estruturas_Repetitivas.Exercicios.*;
 
-import _04_Estruturas_Repetitivas.Exercicios.*;
+import _06_Classes_Atributos_Metodos.Exercicios.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,8 +11,10 @@ public class Main {
         //Loop.whileLoop();
         //Loop.forLoop();
         //Loop.doWhileLoop();
-        //new Exercicio01();
+        new Exercicio01();
         //new Exercicio02();
-        new Exercicio03();
+        //new Exercicio03();
+        //new Exercicio04();
+
     }
 }
