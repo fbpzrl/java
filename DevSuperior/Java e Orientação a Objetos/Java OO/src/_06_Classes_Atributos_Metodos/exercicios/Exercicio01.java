@@ -1,6 +1,6 @@
-package _06_Classes_Atributos_Metodos.Exercicios;
+package _06_Classes_Atributos_Metodos.exercicios;
 
-import _06_Classes_Atributos_Metodos.Entities.Rectangle;
+import _06_Classes_Atributos_Metodos.entities.Rectangle;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -19,5 +19,7 @@ public class Exercicio01 {
         Rectangle rectangle = new Rectangle(width, height);
 
         System.out.println(rectangle);
+
+        sc.close();
     }
 }

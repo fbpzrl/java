@@ -1,4 +1,4 @@
-package _06_Classes_Atributos_Metodos.Entities;
+package _06_Classes_Atributos_Metodos.entities;
 
 public class Rectangle {
 
